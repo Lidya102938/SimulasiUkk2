@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>ATM - Masukan Kartu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#324154] px-28 py-10 h-[100vh] flex items-center">
+  <div class="container bg-[#597298] rounded-lg flex">
+    <div
+      class="heading w-full h-[500px] flex flex-col items-center justify-center text-white text-center text-[28pt] font-mono px-10 space-y-8 ">
+      <h1>Masukkan Jumlah Nominal pecahan 100.000 dan 50.000</h1>
+      <div>
+        <input type="text" id="input" class="w-[200px] h-10 text-black">
+        <a onclick="ambilUang()" href="#" class="text-green-500">ENTER >></a>
+        <a href="keluar.html" class="text-red-500">CANCEL >></a>
+      </div>
+      <h1 class="text-[28pt] text-start">Tekan "Cancel" Untuk Membatalkan</h1>
+    </div>
+    <img src="../images/ambil-uang.jpg" class="w-[400px]">
+  </div>
+
+  <script>
+
+    let saldo = 1000000
+    let input = document.getElementById("input")
+    function ambilUang() {
+      if (input.value.length > 0) {
+        if (input.value % 50000 == 0) {
+          if (input.value < saldo) {
+            let sisa = confirm(`Anda mengambil sebesar ${input.value} sisa saldo anda ${saldo - input.value}`)
+            if (sisa == true) {
+              location.href = "keluar.html"
+            }
+          }
+          else {
+            alert("saldo anda kurang")
+          }
+        }
+        else {
+          alert("Masukkan Nominal dengan benar")
+        }
+      }
+      else {
+        alert("Masukkan Nominal!")
+      }
+    }
+  </script>
+</body>
+
+</html>

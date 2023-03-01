@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>ATM - Pilih Bahasa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#324154] px-28 py-10 h-[100vh] flex ">
+  <div class="container bg-[#597298] rounded-lg flex h-[550px]">
+    <div
+      class="heading w-10/12 flex flex-col  text-white text-center text-[32pt] font-mono px-10 space-y-4 pt-10 space-x-32">
+      <h1 class="">Silahkan Pilih Paket Nominal</h1>
+      <div class="flex text-3xl space-x-16">
+        <div class="space-y-4 text-start">
+          <h1 onclick="hitung(paket.seratus)">
+            <- 100.000</h1>
+              <h1 onclick="hitung(paket.duaratus)">
+                <- 200.000</h1>
+                  <h1 onclick="hitung(paket.tigaratus)" class="pb-4">
+                    <- 300.000</h1>
+                      <a href="nominalLain.html" class=" text-center">
+                        <- Nominal Lain</a>
+        </div>
+        <div class="space-y-4 text-end">
+          <h1 onclick="hitung(paket.limaratus)">500.000 -></h1>
+          <h1 onclick="hitung(paket.satujuta)"> 1.000.000 -></h1>
+          <h1 onclick="hitung(paket.satusetengah)">1.500.000 -></h1>
+          <h1 class="w-[210px] text-center">Transaksi -> Lain</h1>
+        </div>
+      </div>
+    </div>
+
+    <img class="rounded-lg w-[400px] ml-[70px] mt-[50px]" src="../images/ambil-uang.jpg" />
+  </div>
+
+  <script>
+    var paket = {
+      seratus: '100000',
+      duaratus: '200000',
+      tigaratus: '300000',
+      limaratus: '500000',
+      satujuta: '1000000',
+      satusetengah: '1500000',
+    };
+
+    let saldo = "1000000"
+
+    function hitung(value) {
+      let hasil = confirm(`anda mengambil uang sebesar ${value} sisa saldo anda ${saldo - value}`)
+      if (hasil == true) {
+        location.href = "keluar.html"
+      }
+    }
+
+
+  </script>
+
+</body>
+
+</html>
